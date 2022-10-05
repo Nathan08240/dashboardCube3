@@ -1,15 +1,18 @@
 <?php
-$students_info = $_POST['students_info'];
-$sql = "SELECT *FROM `students` 
-JOIN badge_entries ON badge_entries.student_id = students.id
-JOIN sessions ON sessions.id = badge_entries.session_id
-WHERE `firstname` LIKE :students_info OR `lastname` LIKE :students_info OR `school_id` LIKE :students_info";
+$students_info = strtolower(trim($_POST['students_info']));
+$sql =
+    "SELECT *FROM `students` 
+JOIN `promotions_students` ON `student_id` = `students`.`id`
+JOIN `promotions` ON `promotions_students`.`promotion_id` = `promotions`.`id`
+-- JOIN badge_entries ON badge_entries.student_id = students.id
+-- JOIN sessions ON sessions.id = badge_entries.session_id
+WHERE `firstname` LIKE :students_info OR `lastname` LIKE :students_info OR `school_id` LIKE :students_info OR `email` LIKE :students_info OR `name` LIKE :students_info";
 $sth = $db->prepare($sql);
 $sth->execute([':students_info' => $students_info]);
 $students = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 
-if($students != null) {
+if ($students != null) {
     echo '<script>
     document.getElementById("search_student").innerHTML = "";
     </script>';
@@ -19,30 +22,21 @@ if($students != null) {
         <p class="font-semibold">Nom</p>
         <p class="font-semibold">Mail</p>
         <p class="font-semibold">Numéro étudiant</p>
-        <p class="font-semibold">Badge</p>
+        <p class="font-semibold">Promotion</p>
+        
         <p></p>';
-    foreach ($students as $key => $student ) {
-        echo '<p class="text-sm p-1 ">'.$student['firstname'].' </p>';
-        echo '<p class="text-sm p-1 ">'.$student['lastname'].' </p>';
-        echo '<p class="text-sm p-1 ">'.$student['email'].' </p>';
-        echo '<p class="text-sm p-1 ">'.$student['school_id'].' </p>';
+    foreach ($students as $key => $student) {
+        echo '<p class="text-sm p-1 ">' . $student['firstname'] . ' </p>';
+        echo '<p class="text-sm p-1 ">' . $student['lastname'] . ' </p>';
+        echo '<p class="text-sm p-1 ">' . $student['email'] . ' </p>';
+        echo '<p class="text-sm p-1 ">' . $student['school_id'] . ' </p>';
+        echo '<p class="text-sm p-1 ">' . $student['name'] . ' </p>';
 
-        $badge_at = strtotime($student['badge_at']);
-        $badge_entry = date('d/m/Y H:i', $badge_at);
-        $badge_end = strtotime($student['end']);
-        $badge_enable = strtotime($student['enable_to_badge_at']);
-
-        if ($badge_at < $badge_end && $badge_at >= $badge_enable) {
-            $color = 'text-green-500';
-        } else {
-            $color = 'text-red-500';
-        }
-        echo '<div class="h-11 w-full flex "><p class=" py-2 text-center '.$color .'">'.$badge_entry.'</p></div>';
-        echo '<div class="h-11 w-full flex justify-center items-center"><a href="../process/crud/students/deleteStudent.php?school_id='.$student['school_id'].'"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
+        echo '<div class="flex gap-x-3">';
+        echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/students/deleteStudent.php?id=' . $student['student_id'] . '"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
+        echo '<button class="h-11 flex justify-center items-center"  id="' . $student['student_id'] . '"><iconify-icon icon="akar-icons:pencil" style="color: #bada55;" width="32" height="32"></iconify-icon></button>';
+        echo '</div>';
     }
     echo '</div>
     </div>';
-
 }
-
-?>

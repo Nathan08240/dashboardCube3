@@ -23,11 +23,12 @@ if($sessions != null) {
         echo '<p class="text-sm p-1 ">'.$session['end'].' </p>';
         echo '<p class="text-sm p-1 ">'.$session['classroom'].' </p>';
         echo '<p class="text-sm p-1 ">'.$session['referer'].' </p>';
-        echo '<a href="#" class="text-sm p-1 underline text-blue-900"> Détail</a>';
+        echo '<div class="flex gap-x-3">';
+        echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/sessions/deleteSession.php?id=' . $session['id'] . '"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
+        echo '<button class="h-11 flex justify-center items-center"  id="' . $session['id'] . '"><iconify-icon icon="akar-icons:pencil" style="color: #bada55;" width="32" height="32"></iconify-icon></button>';
+        echo '</div>';
     }
     echo '</div>
     </div>';
 
 }
-
-?>

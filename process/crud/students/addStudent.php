@@ -4,10 +4,10 @@ if (
     !isset($_POST["firstname"]) || empty($_POST["firstname"]) ||
     !isset($_POST["lastname"]) || empty($_POST["lastname"]) ||
     !isset($_POST["school_id"]) || empty($_POST["school_id"]) || strlen($_POST["school_id"]) != 7 ||
-    !isset($_POST['promotion'])
+    !isset($_POST['promotion']) || empty($_POST['promotion'])
 ) {
-
-    echo "Error : form is not valid";
+    echo $_POST['id'] . $_POST['promotion'] . $_POST['school_id'] . $_POST['firstname'] . $_POST['lastname'];
+    echo "error form is not valid";
     die;
 }
 
@@ -25,7 +25,7 @@ if (!$req->execute()) {
     die;
 }
 
-$sql ="INSERT INTO `promotions_students`(`promotion_id`, `student_id`) VALUES (:promotion_id, :student_id)";
+$sql = "INSERT INTO `promotions_students`(`promotion_id`, `student_id`) VALUES (:promotion_id, :student_id)";
 $req = $db->prepare($sql);
 $req->bindValue(":promotion_id", $_POST['promotion']);
 $req->bindValue(":student_id", $db->lastInsertId());
@@ -35,4 +35,3 @@ if (!$req->execute()) {
 }
 
 header("Location: ../../../views/students.php");
-

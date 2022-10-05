@@ -3,7 +3,6 @@ include '../middlewares/isAuth.php';
 include '../process/connect.php';
 
 if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
-
 } else {
     header('Location: /views/dashboard.php');
 }
@@ -11,42 +10,78 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
 
 
 <?php include("../partials/head.php");  ?>
-    <title>Admin - Sessions</title>
-    <body class="flex justify-center items-center flex-col ">
+<title>Admin - Sessions</title>
+
+<body class="flex justify-center items-center flex-col ">
     <?php include
-    '../partials/navbar.php';
+        '../partials/navbar.php';
     echo '<script>
-                            document.getElementById("sessions").classList.remove("text-white");
-                            document.getElementById("sessions").classList.add("text-[#BADA55]");
-                       </script>';
+            document.getElementById("sessions").classList.remove("text-white");
+            document.getElementById("sessions").classList.add("text-[#BADA55]");
+        </script>';
     ?>
     <div class=" p-2 rounded-lg flex flex-col justify-center items-center container ">
-        <div class="flex flex-col justify-evenly w-full">
-            <form action="sessions.php" method="POST" class="flex  justify-center items-center gap-y-3 bg-white p-8 rounded-lg">
-                <input type="search" name="sessions_info" placeholder="Prénom / Nom / ID" class="border-2 border-black rounded-lg p-2">
-                <input type="submit"  value="Recherche" class="cursor-pointer text-black font-semibold rounded-lg p-2">
-            </form>
-            <?php include '../process/crud/sessions/readSession.php'; ?>
+        <div class="flex flex-col w-full items-center">
+            <div class="flex justify-center items-center my-6">
+
+                <button class=" font-semibold p-2 flex justify-center items-center" id="add_session">
+                    <iconify-icon icon="akar-icons:person-add" style="color: #bada55;" width="32" height="32"></iconify-icon>
+                </button>
+                <form action="sessions.php" method="POST" class="flex  justify-center items-center bg-white  rounded-lg">
+                    <input type="search" name="sessions_info" placeholder="Prénom / Nom / ID" class="border-2 border-black rounded-lg p-2">
+                    <input type="submit" value="Recherche" class="cursor-pointer text-black font-semibold rounded-lg p-2">
+                </form>
+            </div>
+            <div class="hidden" id="add">
+                <form method="post" action="../../process/crud/sessions/addSession.php" class="grid grid-cols-3 mb-6 ">
+                    <input type="hidden" name="id" id="id" class="p-2 bg-gray-300 rounded-lg">
+                    <input class="m-2 p-2 bg-gray-300 rounded-lg" type="text" name="title" id="title" placeholder="Titre" required>
+                    <input class="m-2 p-2 bg-gray-300 rounded-lg" type="text" name="classroom" id="classroom" placeholder="Salle" required>
+                    <input class="m-2 p-2 bg-gray-300 rounded-lg" type="text" name="referer" id="referer" placeholder="Référent" required>
+                    <label for="enable_to_badge_at">Ouverture<input class="m-2 p-2 bg-gray-300 rounded-lg" type="datetime-local" name="enable_to_badge_at" id="enable_to_badge_at" placeholder="Nom" required></label>
+                    <label for="start_at">Début<input class="m-2 p-2 bg-gray-300 rounded-lg" type="datetime-local" name="start_at" id="start_at" placeholder="Numéro étudiant" required></label>
+                    <label for="end_at">Fin<input class="m-2 p-2 bg-gray-300 rounded-lg" type="datetime-local" name="end_at" id="end_at" placeholder="Prénom" required></label>
+                    <select class="m-2 p-2 bg-gray-300 rounded-lg" name="promotion">
+                        <option value="">Choisir une promotion</option>
+                        <?php include
+                            '../process/crud/promotions/getPromotions.php';
+                        foreach ($promos as $key => $promotion) {
+                            echo '<option value="' . $promotion['id'] . '">' . $promotion['name'] . '</option>';
+                        }
+                        ?>
+
+                    </select>
+                    <button class="m-2 p-2 bg-gray-300 rounded-lg" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class=" grid grid-cols-6 w-11/12 rounded-lg overflow-auto text-center">
+        <?php include '../process/crud/sessions/readSession.php'; ?>
+
+        <div class=" grid grid-cols-7 w-11/12 rounded-lg overflow-auto text-center">
             <p class="font-semibold">Session</p>
-            <p  class="font-semibold">Début</p>
-            <p  class="font-semibold">Fin</p>
-            <p  class="font-semibold">Salle</p>
+            <p class="font-semibold">Début</p>
+            <p class="font-semibold">Fin</p>
+            <p class="font-semibold">Salle</p>
             <p class="font-semibold"> Référent</p>
+            <p class="font-semibold"> Promotions </p>
             <p></p>
             <?php
             include '../process/crud/sessions/getSessions.php';
-            foreach ($sessions as $key => $session ) {
-                echo '<p class="text-sm p-1 ">'.$session['title'].' </p>';
-                echo '<p class="text-sm p-1 ">'.$session['start'].' </p>';
-                echo '<p class="text-sm p-1 ">'.$session['end'].' </p>';
-                echo '<p class="text-sm p-1 ">'.$session['classroom'].' </p>';
-                echo '<p class="text-sm p-1 ">'.$session['referer'].' </p>';
-                echo '<a href="#" class="text-sm p-1 underline text-blue-900"> Détail</a>';
+            foreach ($sessions as $key => $session) {
+                echo '<p class="text-sm p-1 ">' . $session['title'] . ' </p>';
+                echo '<p class="text-sm p-1 ">' . $session['start'] . ' </p>';
+                echo '<p class="text-sm p-1 ">' . $session['end'] . ' </p>';
+                echo '<p class="text-sm p-1 ">' . $session['classroom'] . ' </p>';
+                echo '<p class="text-sm p-1 ">' . $session['referer'] . ' </p>';
+                echo '<p class="text-sm p-1 ">' . $session['name'] . ' </p>';
+                echo '<div class="flex gap-x-3">';
+                echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/sessions/deleteSession.php?id=' . $session['id'] . '"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
+                echo '<button class="h-11 flex justify-center items-center"  id="' . $session['id'] . '"><iconify-icon icon="akar-icons:pencil" style="color: #bada55;" width="32" height="32"></iconify-icon></button>';
+                echo '</div>';
             }
             ?>
         </div>
     </div>
-    </body>
+</body>
+<script src="../src/js//sessions.js"></script>
 <?php include("../partials/footer.php"); ?>

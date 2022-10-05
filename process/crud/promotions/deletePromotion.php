@@ -1,4 +1,5 @@
 <?php
+
 include  '../../connect.php';
 
 if (!isset($_GET["id"]) || empty($_GET["id"])) {
@@ -6,11 +7,10 @@ if (!isset($_GET["id"]) || empty($_GET["id"])) {
     die;
 }
 
-$sql = "DELETE FROM students WHERE id = :id";
+$sql = "DELETE FROM promotions WHERE id = :id";
 $sth = $db->prepare($sql);
 $sth->execute([
     ":id" => $_GET["id"]
 ]);
 
-
-header("Location: ../../../views/students.php");
+header("Location: ../../../views/promotions.php");

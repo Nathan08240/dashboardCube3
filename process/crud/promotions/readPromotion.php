@@ -20,11 +20,12 @@ if($promos != null) {
         echo '<p class="text-sm p-1 ">'.$promo['name'].' </p>';
         echo '<p class="text-sm p-1 ">'.$promo['reference'].' </p>';
         echo '<p class="text-sm p-1 ">'.$promo['referer'].' </p>';
-        echo '<a href="#" class="text-sm p-1 underline text-blue-900"> Détail</a>';
+        echo '<div class="flex gap-x-3">';
+            echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/students/deleteStudent.php?id='.$student['id'].'"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
+            echo '<button class="h-11 flex justify-center items-center"  id="'.$student['id'].'"><iconify-icon icon="akar-icons:pencil" style="color: #bada55;" width="32" height="32"></iconify-icon></button>';
+        echo '</div>';
     }
     echo '</div>
     </div>';
 
 }
-
-?>

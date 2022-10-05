@@ -6,11 +6,13 @@ if (!isset($_GET["id"]) || empty($_GET["id"])) {
     die;
 }
 
-$sql = "DELETE FROM students WHERE id = :id";
+$sql = "DELETE FROM sessions WHERE id = :id";
 $sth = $db->prepare($sql);
 $sth->execute([
     ":id" => $_GET["id"]
 ]);
 
+echo $_GET["id"];
+echo "Session removed successfully";
 
-header("Location: ../../../views/students.php");
+header("Location: ../../../views/sessions.php");
