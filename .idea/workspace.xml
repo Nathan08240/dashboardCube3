@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33e9ffbb-39da-42b0-a623-f714eeec1589" name="Changes" comment="" />
+    <list default="true" id="33e9ffbb-39da-42b0-a623-f714eeec1589" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/process/crud/students/deleteStudent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/process/crud/students/editStudent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/student.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/promotions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/sessions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/staffs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/students.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/htdocs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/htdocs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/output.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/partials/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/connect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/promotions/readPromotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/promotions/readPromotion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/sessions/getSessions.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/sessions/getSessions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/sessions/readSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/sessions/readSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/staffs/readStaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/staffs/readStaff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/students/addStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/students/addStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/students/createStudent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/students/getStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/students/getStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/students/readStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/students/readStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/router/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/button_crud.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/router/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FfT0K9ZHTBtKqfMWQXiEoTtbmI" />
   <component name="ProjectViewState">
@@ -20,6 +58,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/opt/lampp/htdocs",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -32,10 +73,17 @@
       <option name="presentableId" value="Default" />
       <updated>1664881921494</updated>
       <workItem from="1664881924455" duration="29000" />
+      <workItem from="1664900222659" duration="25000" />
+      <workItem from="1664900255184" duration="824000" />
+      <workItem from="1664901599303" duration="26206000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
