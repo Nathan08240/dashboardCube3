@@ -31,9 +31,28 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
                 </div>
                 <div class="hidden" id="add">
                     <form method="post" action="../../process/crud/students/addStudent.php" class="flex gap-x-3 mb-6 " id="form_student">
+                        <input type="hidden" name="id" id="id" class="p-2 bg-gray-300 rounded-lg">
                         <input class="p-2 bg-gray-300 rounded-lg" type="text" name="firstname" id="firstname" placeholder="Prénom" required>
                         <input class="p-2 bg-gray-300 rounded-lg"  type="text" name="lastname" id="lastname" placeholder="Nom" required>
                         <input  class="p-2 bg-gray-300 rounded-lg"type="text" name="school_id"  id="school_id" placeholder="Numéro étudiant" required>
+                        <select name="promotion" >
+                            <?php include
+                            '../process/crud/promotions/getPromotions.php';
+                            foreach ($promos as $key => $promotion) {
+                                echo '<option value="'.$promotion['id'].'">'.$promotion['name'].'</option>';
+                            }
+                            ?>
+
+                        </select>
+                        <button class="p-2 bg-gray-300 rounded-lg" type="submit" >Submit</button>
+                    </form>
+                </div>
+                <div class="hidden" id="update">
+                    <form method="post" action="../../process/crud/students/editStudent.php" class="flex gap-x-3 mb-6 " id="form_student">
+                        <input type="text" name="id" id="idup" class="p-2 bg-gray-300 rounded-lg">
+                        <input class="p-2 bg-gray-300 rounded-lg" type="text" name="firstname" id="firstnameup" placeholder="Prénom" required>
+                        <input class="p-2 bg-gray-300 rounded-lg"  type="text" name="lastname" id="lastnameup" placeholder="Nom" required>
+                        <input  class="p-2 bg-gray-300 rounded-lg"type="text" name="school_id"  id="school_idup" placeholder="Numéro étudiant" required>
                         <select name="promotion" >
                             <?php include
                             '../process/crud/promotions/getPromotions.php';
@@ -81,20 +100,19 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
                         echo '<div class="flex gap-x-3">';
                             echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/students/deleteStudent.php?id='.$student['id'].'"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
                             echo '<button class="h-11 flex justify-center items-center"  id="'.$student['id'].'"><iconify-icon icon="akar-icons:pencil" style="color: #bada55;" width="32" height="32"></iconify-icon></button>';
-                            echo '<script> 
-                                    document.getElementById("'.$student['id'].'").addEventListener("click", function() {
-                                        document.getElementById("form_student").action = "../../process/crud/students/editStudent.php";                                        
-                                        document.getElementById("add").classList.remove("hidden");
-                                        document.getElementById("lastname").value = " '.$student['lastname'].'";
-                                        document.getElementById("firstname").value = " '.$student['firstname'].'";
-                                        document.getElementById("school_id").value = " '.$student['school_id'].'";
-                                        
-                                         
-                                    });
-                                    
-
-                                        </script>';
-                        echo '</div>';
+                           
+                           ?> 
+                            <script>
+                                document.getElementById("<?php echo $student['id']; ?>").addEventListener("click", function() {
+                                    document.getElementById("update").classList.toggle("hidden");
+                                    document.getElementById("idup").value = "<?php echo $student['id']; ?>";
+                                    document.getElementById("firstnameup").value = "<?php echo $student['firstname']; ?>";
+                                    document.getElementById("lastnameup").value = "<?php echo $student['lastname']; ?>";
+                                    document.getElementById("school_idup").value = "<?php echo $student['school_id']; ?>";
+                                });
+                            </script>
+                            <?php
+                              echo '</div>';
 
                     }
                     ?>
