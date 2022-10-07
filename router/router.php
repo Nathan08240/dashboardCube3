@@ -1,9 +1,5 @@
 <?php  
     
-    require './router/AltoRouter.php';
+    require 'AltoRouter.php';
 
     $router = new AltoRouter();
-
-    $router->setBasePath('/');
-
-   
