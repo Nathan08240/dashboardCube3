@@ -10,58 +10,50 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
 ?>
 
 <?php include("../partials/head.php"); ?>
-    <title>Admin - Promotions</title>
+<title>Admin - Promotions</title>
 
-    <body class="flex justify-center items-center flex-col ">
+<body class="flex justify-center items-center flex-col ">
     <?php include
-    '../partials/navbar.php';
+        '../partials/navbar.php';
     echo '<script>
             document.getElementById("promos").classList.remove("text-white");
-            document.getElementById("promos").classList.add("text-[#BADA55]");
+            document.getElementById("promos").classList.add("text-[#AFA5DA]");
          </script>';
     ?>
-    <div class=" p-2 rounded-lg flex flex-col justify-center items-center container ">
-        <div class="flex flex-col w-full items-center">
+    <div class="rounded-lg flex flex-col justify-center items-center w-full ">
+        <div class="flex flex-col w-full items-center bg-[#afa5DA] mb-10">
             <div class="flex justify-center items-center my-6">
                 <button class=" font-semibold p-2 flex justify-center items-center" id="add_promo">
-                    <iconify-icon icon="akar-icons:person-add" style="color: #bada55;" width="32"
-                                  height="32"></iconify-icon>
+                    <iconify-icon icon="akar-icons:person-add" style="color: black;" width="32" height="32"></iconify-icon>
                 </button>
-                <form action="promotions.php" method="POST"
-                      class="flex  justify-center items-center bg-white  rounded-lg">
-                    <input type="search" name="promos_info" placeholder="Nom / Code / Référant"
-                           class="border-2 border-black rounded-lg p-2">
-                    <input type="submit" value="Recherche"
-                           class="cursor-pointer text-black font-semibold rounded-lg p-2">
+                <form action="promotions.php" method="POST" class="flex bg-[#afa5DA] justify-center items-center bg-white  rounded-lg">
+                    <input type="search" name="promos_info" placeholder="Nom / Code / Référant" class="border-2 border-black rounded-lg p-2">
+                    <input type="submit" value="Recherche" class="cursor-pointer text-black font-semibold rounded-lg p-2">
                 </form>
             </div>
             <div class="hidden" id="add">
                 <form method="post" action="../../process/crud/promotions/addPromotion.php" class="flex gap-x-3 mb-6">
                     <input type="hidden" name="id" id="id" class="p-2 bg-gray-300 rounded-lg">
-                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="name" id="name" placeholder="Nom"
-                           required>
-                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="reference" id="reference"
-                           placeholder="Code analytique" required>
+                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="name" id="name" placeholder="Nom" required>
+                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="reference" id="reference" placeholder="Code analytique" required>
                     <select class="p-2 bg-gray-300 rounded-lg" name="referer" id="refererup">
                         <option value=""> Choisi un référant</option>
                         <?php
 
                         include '../process/crud/staffs/getStaffs.php';
                         foreach ($staffs as $staff) {
-                            echo '<option value="' . $staff['id'] . '">' . $staff['firstname'] .' '. $staff['lastname'] . '</option>';
+                            echo '<option value="' . $staff['id'] . '">' . $staff['firstname'] . ' ' . $staff['lastname'] . '</option>';
                         }
 
                         ?>
                     </select>
 
                     <label for="start">Début</label>
-                    <input class="p-2 bg-gray-300 rounded-lg" type="datetime-local" name="start_at" id="start_at"
-                           required>
+                    <input class="p-2 bg-gray-300 rounded-lg" type="datetime-local" name="start_at" id="start_at" required>
 
                     <label for="end">Fin</label>
 
-                    <input class="p-2 bg-gray-300 rounded-lg" type="datetime-local" name="finished_at" id="finished_at"
-                           required>
+                    <input class="p-2 bg-gray-300 rounded-lg" type="datetime-local" name="finished_at" id="finished_at" required>
 
                     <button class="p-2 bg-gray-300 rounded-lg" type="submit">Submit</button>
                 </form>
@@ -69,17 +61,15 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
             <div class="hidden" id="update">
                 <form method="post" action="../../process/crud/promotions/editPromotion.php" class="flex gap-x-3 mb-6 ">
                     <input type="hidden" name="id" id="idup" class="p-2 bg-gray-300 rounded-lg">
-                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="name" id="nameup" placeholder="Nom"
-                           required>
-                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="reference" id="referenceup"
-                           placeholder="Code analytique" required>
+                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="name" id="nameup" placeholder="Nom" required>
+                    <input class="p-2 bg-gray-300 rounded-lg" type="text" name="reference" id="referenceup" placeholder="Code analytique" required>
                     <select class="p-2 bg-gray-300 rounded-lg" name="referer" id="refererup">
                         <option value=""> Choisi un référant</option>
                         <?php
 
                         include '../process/crud/staffs/getStaffs.php';
                         foreach ($staffs as $staff) {
-                            echo '<option value="' . $staff['id'] . '">' . $staff['firstname'] .' '. $staff['lastname'] . '</option>';
+                            echo '<option value="' . $staff['id'] . '">' . $staff['firstname'] . ' ' . $staff['lastname'] . '</option>';
                         }
 
                         ?>
@@ -91,8 +81,7 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
 
                     <label for="end">Fin</label>
 
-                    <input class="p-2 bg-gray-300 rounded-lg" type="datetime-local" name="finished_at"
-                           id="finished_atup">
+                    <input class="p-2 bg-gray-300 rounded-lg" type="datetime-local" name="finished_at" id="finished_atup">
 
                     <button class="p-2 bg-gray-300 rounded-lg" type="submit">Submit</button>
                 </form>
@@ -117,9 +106,9 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
 
                 echo '<div class="flex gap-x-3">';
                 echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/promotions/deletePromotion.php?reference=' . $promo['reference'] . '"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
-                echo '<button class="h-11 flex justify-center items-center"  id="' . $promo['reference'] . '"><iconify-icon icon="akar-icons:pencil" style="color: #bada55;" width="32" height="32"></iconify-icon></button>';
+                echo '<button class="h-11 flex justify-center items-center"  id="' . $promo['reference'] . '"><iconify-icon icon="akar-icons:pencil" style="color: #afa5DA;" width="32" height="32"></iconify-icon></button>';
 
-                ?>
+            ?>
                 <script>
                     document.getElementById("<?php echo $promo['reference'] ?>").addEventListener("click", () => {
                         document.getElementById("update").classList.toggle("hidden");
@@ -132,11 +121,11 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
 
                     })
                 </script>
-                <?php echo '</div>';
+            <?php echo '</div>';
             }
             ?>
         </div>
     </div>
-    </body>
-    <script src="../src/js/promotions.js"></script>
+</body>
+<script src="../src/js/promotions.js"></script>
 <?php include("../partials/footer.php"); ?>

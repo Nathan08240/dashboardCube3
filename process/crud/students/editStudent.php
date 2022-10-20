@@ -12,8 +12,10 @@ if (
     !isset($_POST["school_id"]) || empty($_POST["school_id"]) || strlen($_POST["school_id"]) != 7 ||
     !isset($_POST['promotion']) || empty($_POST['promotion'])
 ) {
+    header("Location: ../../../views/students.php");
+    echo $_POST["promotion"];
     echo "error form is not valid";
-    die;
+    //die;
 }
 
 $email = strtolower($_POST["firstname"]) . "." . strtolower($_POST["lastname"]) . "@viacesi.fr";

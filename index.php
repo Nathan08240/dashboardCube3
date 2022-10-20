@@ -1,12 +1,14 @@
-<?php 
-    include("./partials/head.php");
-    include "router/router.php";
+<?php
+include("./partials/head.php");
+include "router/router.php";
 
- ?>
+?>
 <title>Connexion</title>
+
 <body>
     <!-- login modal with tailwindcss -->
-    <div class="flex items-center justify-center h-screen bg-cesi  bg-no-repeat bg-top">
+    <div class="flex flex-col items-center justify-center h-screen  bg-no-repeat bg-bottom ">
+        <img src="./assets/img/logo-CESI.png" alt="" class="absolute top-[15%] >
         <div class="w-full max-w-xs">
             <!-- create form to connect with session -->
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="process/login.php" method="POST">
@@ -21,7 +23,7 @@
                         Mot de passe
                     </label>
                     <input class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name="password" required="required">
-                    
+
                 </div>
                 <div class="flex items-center justify-center">
                     <button class="bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -31,7 +33,7 @@
                 </div>
             </form>
             <p class="text-center text-gray-500 text-xs">
-                &copy;2021 Cesi. Tous droits réservés.
+                &copy;2022 Cesi. Tous droits réservés.
             </p>
         </div>
 </body>

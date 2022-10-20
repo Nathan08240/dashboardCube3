@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33e9ffbb-39da-42b0-a623-f714eeec1589" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/process/crud/sessions/editSession.php" afterDir="false" />
+    <list default="true" id="33e9ffbb-39da-42b0-a623-f714eeec1589" name="Changes" comment="continue crud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/output.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdf.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/process/crud/promotions/deletePromotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/promotions/deletePromotion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process/crud/promotions/getPromotions.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/promotions/getPromotions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process/crud/promotions/readPromotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/promotions/readPromotion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process/crud/sessions/addSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/sessions/addSession.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process/crud/sessions/deleteSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/sessions/deleteSession.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/router/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/router/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/partials/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/partials/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/crud/students/editStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/crud/students/editStudent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/process/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/promotions.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/promotions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/sessions.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/sessions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/staffs.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/staffs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/students.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/students.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,19 +41,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/opt/lampp/htdocs",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/opt/lampp/htdocs&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,8 +68,17 @@
       <workItem from="1664901599303" duration="26206000" />
       <workItem from="1665038956855" duration="130000" />
       <workItem from="1665039107591" duration="972000" />
-      <workItem from="1665139192203" duration="14808000" />
+      <workItem from="1665139192203" duration="15600000" />
+      <workItem from="1666178856737" duration="5165000" />
     </task>
+    <task id="LOCAL-00001" summary="continue crud">
+      <created>1665156096297</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665156096297</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +94,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="continue crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="continue crud" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
