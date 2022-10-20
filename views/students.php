@@ -74,26 +74,26 @@ if ($_SESSION['role'] == 'pilot' || $_SESSION['role'] == 'admin') {
             </div>
             <?php include '../process/crud/students/readStudent.php'; ?>
         </div>
-        <div class="w-full flex flex-col justify-center items-center" id="search_student">
+        <div class="w-full flex flex-col justify-center items-center container" id="search_student">
             <div class=" grid md:grid-cols-6 grid-cols-4 w-11/12 rounded-lg overflow-auto ">
-                <p class="font-semibold">Prénom</p>
-                <p class="font-semibold ">Nom</p>
-                <p class="font-semibold hidden md:block">Mail</p>
-                <p class="font-semibold hidden md:block">Numéro étudiant</p>
-                <p class="font-semibold">Promotion</p>
-                <p class="font-semibold">Action</p>
+                <p class="font-semibold text-center">Prénom</p>
+                <p class="font-semibold text-center">Nom</p>
+                <p class="font-semibold hidden md:block text-center">Mail</p>
+                <p class="font-semibold hidden md:block text-center">Numéro étudiant</p>
+                <p class="font-semibold text-center">Promotion</p>
+                <p class="font-semibold text-center">Action</p>
 
                 <?php
 
                 include '../process/crud/students/getStudent.php';
 
                 foreach ($students as $key => $student) {
-                    echo '<p class="text-sm p-1 ">' . $student['firstname'] . ' </p>';
-                    echo '<p class="text-sm p-1 ">' . $student['lastname'] . ' </p>';
-                    echo '<p class="text-sm p-1 hidden md:block ">' . $student['email'] . ' </p>';
-                    echo '<p class="text-sm p-1 hidden md:block">' . $student['school_id'] . ' </p>';
-                    echo '<p class="text-sm p-1 ">' . $student['name'] . ' </p>';
-                    echo '<div class="flex gap-x-3">';
+                    echo '<p class="text-sm p-1 text-center ">' . $student['firstname'] . ' </p>';
+                    echo '<p class="text-sm p-1 text-center ">' . $student['lastname'] . ' </p>';
+                    echo '<p class="text-sm p-1 text-center hidden md:block ">' . $student['email'] . ' </p>';
+                    echo '<p class="text-sm p-1 text-center hidden md:block">' . $student['school_id'] . ' </p>';
+                    echo '<p class="text-sm p-1 text-center ">' . $student['name'] . ' </p>';
+                    echo '<div class="flex gap-x-3 items-center justify-center">';
                     echo '<div class="h-11 flex justify-center items-center"><a href="../process/crud/students/deleteStudent.php?id=' . $student['student_id'] . '"><iconify-icon icon="akar-icons:cross" style="color: red;" width="32" height="32"></iconify-icon></a></div>';
                     echo '<button class="h-11 flex justify-center items-center"  id="' . $student['student_id'] . '"><iconify-icon icon="akar-icons:pencil" style="color: #afa5DA;" width="32" height="32"></iconify-icon></button>';
 

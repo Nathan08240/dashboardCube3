@@ -1,6 +1,5 @@
 <?php
 include("./partials/head.php");
-include "router/router.php";
 
 ?>
 <title>Connexion</title>

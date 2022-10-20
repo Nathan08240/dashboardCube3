@@ -24,7 +24,7 @@ if ($login) {
         $_SESSION['lastname'] = $login['lastname'];
         $_SESSION['firstname'] = $login['firstname'];
         $_SESSION['id'] = $login['id'];
-        header('Location: /views/dashboard.php');
+        header('Location: ./../views/dashboard.php');
         die;
     }
 }

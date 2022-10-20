@@ -14,14 +14,14 @@ if ($_SESSION['role'] == 'speaker') {
 <?php include("../partials/head.php");  ?>
 <title>Tableau de Bord - Cesi</title>
 
-<body class="h-screen w-screen bg-gray-200">
+<body class="h-screen w-screen bg-[#F5F5F5]">
     <!-- DASHBOARD -->
     <?php include '../partials/navbar.php'; ?>
 
     <?php
     if ($_SESSION['role'] == 'speaker') {
     ?>
-        <div class="grid lg:grid-cols-2 lg:grid-rows-1 h-[90%] gap-y-6 gap-x-6 p-6" id="display">
+        <div class="grid lg:grid-cols-2 lg:grid-rows-1 h-[90%] gap-y-6 gap-x-6 p-6 " id="display">
 
             <div class="h-full flex flex-col p-8 bg-gray-200 rounded-3xl gap-y-3" id="promo">
 
@@ -62,10 +62,10 @@ if ($_SESSION['role'] == 'speaker') {
         <?php } else {
         echo  '<div class="grid lg:grid-cols-1 lg:grid-rows-1 h-[90%] gap-y-6 gap-x-6 p-6" id="display">';
     } ?>
-        <div class="h-full flex flex-col p-8   gap-y-3" id="planning">
+        <div class="h-full flex flex-col sm:p-8 md:p-0  gap-y-3" id="planning">
             <p class="text-3xl font-semibold">PLANNING</p>
-            <div class="h-full w-full  border-solid border-2 border-black p-2 overflow-auto">
-                <div id='calendar'></div>
+            <div class="h-full w-full  border-solid  overflow-auto">
+                <div id='calendar' class=""></div>
             </div>
         </div>
         </div>

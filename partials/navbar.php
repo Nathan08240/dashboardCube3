@@ -1,5 +1,5 @@
-<nav class="w-full bg-black items-center  z-20">
-    <div class="h-full text-3xl flex justify-between flex-row-reverse items-center px-6 py-3">
+<nav class="w-screen bg-black items-center  z-20">
+    <div class="h-full w-full text-3xl flex justify-between flex-row-reverse items-center px-6 py-3">
         <div class="gap-x-6 w-full flex items-center justify-between ">
             <?php
             echo '<div class="hidden items-center md:flex">';
